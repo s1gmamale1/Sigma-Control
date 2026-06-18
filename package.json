@@ -1,0 +1,39 @@
+{
+  "name": "sigma-control-mcp",
+  "version": "0.1.0",
+  "description": "Standalone MCP bridge that lets external AI agents (Hermes, OpenClaw, Claude Code) drive a running SigmaLink via its Control plane — the Unity/Blender-MCP pattern.",
+  "type": "commonjs",
+  "bin": {
+    "sigma-control-mcp": "dist/server.cjs"
+  },
+  "files": [
+    "dist/server.cjs",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "typecheck": "npm i --no-save --no-audit --no-fund typescript@5.5.4 @types/node@20 && tsc --noEmit",
+    "test": "npx --yes vitest@2.1.9 run",
+    "prepublishOnly": "node scripts/build.cjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "sigmalink",
+    "hermes",
+    "openclaw",
+    "agent",
+    "control-plane",
+    "stdio"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s1gmamale1/Sigma-Control.git"
+  },
+  "license": "MIT"
+}

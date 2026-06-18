@@ -1,0 +1,9 @@
+# Dependencies (the package has none at runtime; build/test tools are fetched via npx)
+node_modules/
+
+# Logs / OS cruft
+*.log
+.DS_Store
+
+# NOTE: dist/server.cjs is intentionally COMMITTED — it is what `npx github:…`
+# and `node dist/server.cjs` run, so the package needs no build/install step.
