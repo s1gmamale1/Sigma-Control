@@ -61,7 +61,7 @@ Any MCP client works — anything that can spawn an stdio MCP server. For a **He
 - **Local-only transport.** The bridge connects to a Unix socket / named pipe — local to the machine running SigmaLink. There is no network bind. (Remote access is a separate SigmaLink feature.)
 - **Token handshake.** Every connection presents the bearer token before any tool call; a bad token is rejected and the socket closed.
 - **`origin:'external'` is forced by the host** — a client cannot claim to be the in-app operator.
-- **Supervised autonomy.** Read/observe and agent-directed actions run freely; irreversible/destructive actions (close pane/workspace, kill swarm, typing into a shell) **escalate to the operator** and fail closed on timeout. There is an operator **kill-switch** (freeze) that denies everything.
+- **Supervised autonomy.** Read/observe and agent-directed actions run freely; irreversible/destructive actions — **closing a pane (`close_pane`) or workspace (`close_workspace`), killing a swarm (`kill_swarm`), navigating the built-in browser (`browser_navigate`), or typing into a *shell* pane** — **escalate to the operator** and fail closed on timeout. (The exact escalation set is enforced by SigmaLink, not this bridge, and may grow — never assume a call is free.) There is an operator **kill-switch** (freeze) that denies everything.
 - The token grants control of the operator's machine via SigmaLink — **treat it like a credential**. Rotate it in Settings → External Control if it leaks.
 
 ## Development

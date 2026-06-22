@@ -26,7 +26,7 @@ Hermes's loop (it drives itself — you don't hand-code it):
 4. `wait_for_pane({ sessionIds, until: 'prompt' | 'idle' | 'exit' })` — block until a coder needs input or finishes (multiplex several at once).
 5. `read_pane_since` — read what happened; decide the next step.
 6. `prompt_agent` — unblock / redirect the coder (one call submits).
-7. Irreversible ops (`close_pane`, `close_workspace`, `kill_swarm`, shell input) → **escalate to you**; Hermes proceeds with the rest.
+7. Irreversible ops (`close_pane`, `close_workspace`, `kill_swarm`, `browser_navigate`, shell input) → **escalate to you**; Hermes proceeds with the rest. (Need to just halt a pane? Prefer `stop_pane` — recoverable, runs free — over the escalating `close_pane`.)
 8. Update its notes (`create_memory`) and report.
 
 ## 1. Get your connection details
